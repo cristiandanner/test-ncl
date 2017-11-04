@@ -9,8 +9,8 @@
 	<!-- ### Regiao para o menu de interatividade ### -->
 	<region height="19.5%" id="rgMenu" left="3.75%" top="3.33%" width="18.6%">
 	  <region height="29.3%" id="rgLocalizacao"/>
-	  <region height="29.3%" id="rgCondicoes" top="33%"/>
-	  <region height="29.3%" id="rgUnidades" top="66%"/>
+	  <region height="29.3%" id="rgCuriosidades" top="33%"/>
+	  <region height="29.3%" id="rgSurpresa" top="66%"/>
 	</region>
 	<!-- ### Regiao para o mapa de localizacao ### -->
 	<region height="56.9%" id="rgMapa" left="3.75%" top="11.67%" width="33.5%">
@@ -36,7 +36,7 @@
 	  <region id="rgConteudoTexto" height="55.76%" width="84%" left="5%" top="15%"/>
 	</region>
 	<region id="rgVideo" height="42.71%" width="41.85%" top="25%" right="5.1%"/>
-	<region bottom="0%" height="16.79%" id="rgCondicoesBotoes" right="2.5%" width="18.94%"/>
+	<region bottom="0%" height="16.79%" id="rgCuriosidadesBotoes" right="2.5%" width="18.94%"/>
       </region>
     </regionBase>
   </head>

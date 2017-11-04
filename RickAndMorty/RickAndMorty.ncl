@@ -12,12 +12,12 @@
       <descriptor id="dsFullScreen" region="rg#rgFullScreen"/>
       <descriptor id="dsInteratividade" region="rg#rgInteratividade"/>
       <descriptor id="dsLocalizacao" region="rg#rgLocalizacao"/>
-      <descriptor id="dsCuriosidades" region="rg#rgCondicoes"/>
-      <descriptor id="dsSurpresa" region="rg#rgUnidades"/>
+      <descriptor id="dsCuriosidades" region="rg#rgCuriosidades"/>
+      <descriptor id="dsSurpresa" region="rg#rgSurpresa"/>
       <descriptor id="dsMapa" region="rg#rgMapa"/>
       <descriptor id="dsSairMapa" region="rg#rgSairMapa"/>
       <descriptor id="dsTelaInteracao" region="rg#rgTelaInteracao"/>
-      <descriptor id="dsCuriosidadesBtn" region="rg#rgCondicoesBotoes"/>
+      <descriptor id="dsCuriosidadesBtn" region="rg#rgCuriosidadesBotoes"/>
       <!-- #### Descritores utilizados para navegacao ### -->
       <descriptor id="dsCuriosidade1" region="rg#rgQuarto1"
 		  focusSrc="media/imagens/common/curiosidades/curiosidade1Selecionado.png"
