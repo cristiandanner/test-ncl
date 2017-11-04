@@ -26,10 +26,10 @@
 	<region id="rgProviewLogo" height="10.15%" width="19.04%" top="5%" left="5%"/>
 	<region id="rgGinga" width="23.04%" height="5.98%" right="5%" top="5%"/>
 
-	<region height="5.33%" id="rgMenuQuartos" left="5%" top="25%" width="29.29%">
-	  <region id="rgQuarto1" width="32%"/>
-	  <region id="rgQuarto2" left="33.5%" width="32%"/>
-	  <region id="rgQuarto3" left="67%" width="32%"/>
+	<region height="5.33%" id="rgMenuCuriosidades" left="5%" top="25%" width="29.29%">
+	  <region id="rgCuriosidade1" width="32%"/>
+	  <region id="rgCuriosidade2" left="33.5%" width="32%"/>
+	  <region id="rgCuriosidade3" left="67%" width="32%"/>
 	</region>
 	<region height="5.33%" id="rgHeadUnidades" left="5%" top="25%" width="16.40%"/>
 	<region height="56.51%" id="rgConteudoFundo" left="5%" top="30.5%" width="29.29%">

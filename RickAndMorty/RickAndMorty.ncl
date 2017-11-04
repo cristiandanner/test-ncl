@@ -19,19 +19,19 @@
       <descriptor id="dsTelaInteracao" region="rg#rgTelaInteracao"/>
       <descriptor id="dsCuriosidadesBtn" region="rg#rgCuriosidadesBotoes"/>
       <!-- #### Descritores utilizados para navegacao ### -->
-      <descriptor id="dsCuriosidade1" region="rg#rgQuarto1"
+      <descriptor id="dsCuriosidade1" region="rg#rgCuriosidade1"
 		  focusSrc="media/imagens/common/curiosidades/curiosidade1Selecionado.png"
 		  moveLeft="3" moveRight="2"
 		  focusBorderWidth="0" focusIndex="1"
 		  />
 
-      <descriptor id="dsCuriosidade2" region="rg#rgQuarto2"
+      <descriptor id="dsCuriosidade2" region="rg#rgCuriosidade2"
 		  focusSrc="media/imagens/common/curiosidades/curiosidade2Selecionado.png"
 		  moveLeft="1" moveRight="3"
 		  focusBorderWidth="0" focusIndex="2"
 		  />
 
-      <descriptor  id="dsCuriosidade3" region="rg#rgQuarto3"
+      <descriptor  id="dsCuriosidade3" region="rg#rgCuriosidade3"
 		   focusSrc="media/imagens/common/curiosidades/curiosidade3Selecionado.png"
 		   moveLeft="2" moveRight="1"
 		   focusBorderWidth="0" focusIndex="3"
