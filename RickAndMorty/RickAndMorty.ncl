@@ -82,7 +82,7 @@
 	  <simpleCondition max="unbounded" delay="0.3s" qualifier="or" role="onEnd"/>
 	  <compoundStatement operator="and">
 	    <assessmentStatement comparator="eq">
-	      <attributeAssessment attributeType="nodeProperty" eventType="attribution" role="testInicioOutBack"/>
+	      <attributeAssessment attributeType="nodeProperty" eventType="attribution" role="testInicioClose"/>
 	      <valueAssessment value="false"/>
 	    </assessmentStatement>
 	    <assessmentStatement comparator="eq">
@@ -205,7 +205,7 @@
       <property name="service.currentFocus"/> <!-- #### VÃ¡riavel de Sistema que seta o Foco atual #### -->
       <property name="service.currentKeyMaster" value="ixLua"/> <!-- ## VÃ¡riavel de Sistema que seta quem recebe eventos de Controle Remoto ## -->
       <property name="fullScreen" value="true"/> <!-- ### Flag utilizado para determinar se o video estar em FullScreen ### -->
-      <property name="inicioOutBack" value="false"/> <!-- ### Flag utilizado para sinalizar o inicio do comercial do OutBack -->
+      <property name="inicioClose" value="false"/> <!-- ### Flag utilizado para sinalizar o close -->
       <property name="user.location" /> <!-- CEP do usuario -->
     </media>
 
@@ -222,7 +222,7 @@
     <media descriptor="dsFullScreen" id="vdoComercial" src="media/videos/comercial.mp4">
       <!-- ### Ancoras Temporais referente ao promo ### -->
       <area begin="8s" end="60s" id="areaInter"/>
-      <area begin="61s" end="62s" id="areaOutback"/>
+      <area begin="61s" end="62s" id="areaClose"/>
       <property name="bounds"/> <!-- ### Propriedade de mídia relacionada com o tamanho da midia ### -->
     </media>
 
@@ -244,7 +244,7 @@
       <bind component="setNode" interface="fullScreen" role="set">
 	<bindParam name="var" value="true"/>
       </bind>
-      <bind component="setNode" interface="inicioOutBack" role="set">
+      <bind component="setNode" interface="inicioClose" role="set">
 	<bindParam name="var" value="false"/>
       </bind>
       <bind component="imgTelaApresentacao" role="stop"/>
@@ -267,18 +267,18 @@
     <link xconnector="onEndTestStartNStopN">
       <bind component="vdoComercial" interface="areaInter" role="onEnd"/>
       <bind component="setNode" interface="fullScreen" role="testFullScreen"/>
-      <bind component="ctxOutBack" role="start"/>
+      <bind component="ctxClose" role="start"/>
       <bind component="ctxCuriosidade" role="stop"/>
       <bind component="imgInteratividade" role="stop"/>
     </link>
 
     <!-- ###################################
-	 # Seta o Flag: inicioOutBack com true
-	 # Notificando que o comercial do OutBack iniciou
+	 # Seta o Flag: inicioClose com true
+	 # Notificando o close
 	 #################################### -->
     <link xconnector="onBeginSetN">
-      <bind component="vdoComercial" interface="areaOutback" role="onBegin"/>
-      <bind component="setNode" interface="inicioOutBack" role="set">
+      <bind component="vdoComercial" interface="areaClose" role="onBegin"/>
+      <bind component="setNode" interface="inicioClose" role="set">
 	<bindParam name="var" value="true"/>
       </bind>
     </link>
@@ -304,7 +304,7 @@
       <bind component="setNode" interface="fullScreen" role="set">
 	<bindParam name="var" value="true"/>
       </bind>
-      <bind component="setNode" interface="inicioOutBack" role="set">
+      <bind component="setNode" interface="inicioClose" role="set">
 	<bindParam name="var" value="false"/>
       </bind>
       <bind component="imgTelaEncerramento" role="stop"/>
@@ -524,7 +524,7 @@
 	<bind component="ctxCuriosidades" interface="ptoCtxRef1TelaInter" role="onEnd"/>
 	<bind component="ctxSurpresa" interface="ptoCtxRef2TelaInter" role="onEnd"/>
 	<bind component="ctxMapa" role="onEnd"/>
-	<bind component="focusNodeCondiminio" interface="inicioOutBack" role="testInicioOutBack"/>
+	<bind component="focusNodeCondiminio" interface="inicioClose" role="testInicioClose"/>
 	<bind component="focusNodeCondiminio" interface="fullScreen" role="testFullScreen"/>
 	<bind component="imgBtnCuriosidadesSel" role="start"/>
 	<bind component="imgBtnSurpresaSel" role="start"/>
@@ -568,18 +568,18 @@
 
      <!-- ###################################
 	 # Contexto responsavel pela interatividade
-	 # do comercial do OutBack
+	 # do close
 	 ################################### -->
-    <context id="ctxOutBack">
+    <context id="ctxClose">
 
 
       <media id="vdoComercialRef4" refer="vdoComercial" instance="instSame"/>
-      <media id="setNodeOutBack" refer="setNode" instance="instSame"/>
+      <media id="setNodeClose" refer="setNode" instance="instSame"/>
 
   
-      <!-- ### Termina o outback encerra tudo ### -->
+      <!-- ### Termina, encerra tudo ### -->
       <link xconnector="onEndStopN">
-	<bind component="vdoComercialRef4" interface="areaOutback" role="onEnd"/>
+	<bind component="vdoComercialRef4" interface="areaClose" role="onEnd"/>
 
       </link>
 
