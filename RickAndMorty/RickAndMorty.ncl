@@ -218,7 +218,7 @@
     <media descriptor="dsFullScreen" id="imgTelaApresentacao" src="media/imagens/tela_apresentacao.png"/>
     <media descriptor="dsInteratividade" id="imgInteratividade" src="media/imagens/btn_interativo.png"/>
 
-    <media descriptor="dsFullScreen" id="vdoPromo" src="media/videos/comercial.mp4">
+    <media descriptor="dsFullScreen" id="vdoPromo" src="media/videos/promo.mp4">
       <!-- ### Ancoras Temporais referente ao promo ### -->
       <area begin="8s" end="60s" id="areaInter"/>
       <area begin="61s" end="62s" id="areaClose"/>
