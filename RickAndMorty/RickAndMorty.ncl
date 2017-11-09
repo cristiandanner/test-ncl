@@ -218,7 +218,7 @@
     <media descriptor="dsFullScreen" id="imgTelaApresentacao" src="media/imagens/tela_apresentacao.png"/>
     <media descriptor="dsInteratividade" id="imgInteratividade" src="media/imagens/btn_interativo.png"/>
 
-    <media descriptor="dsFullScreen" id="vdoComercial" src="media/videos/comercial.mp4">
+    <media descriptor="dsFullScreen" id="vdoPromo" src="media/videos/comercial.mp4">
       <!-- ### Ancoras Temporais referente ao promo ### -->
       <area begin="8s" end="60s" id="areaInter"/>
       <area begin="61s" end="62s" id="areaClose"/>
@@ -239,7 +239,7 @@
       <bind component="imgTelaApresentacao" role="onSelection">
 	<bindParam name="keyCode" value="YELLOW"/>
       </bind>
-      <bind component="vdoComercial" role="start"/>
+      <bind component="vdoPromo" role="start"/>
       <bind component="setNode" interface="fullScreen" role="set">
 	<bindParam name="var" value="true"/>
       </bind>
@@ -249,7 +249,7 @@
       <bind component="imgTelaApresentacao" role="stop"/>
     </link>
     <link xconnector="onBeginStart">
-      <bind component="vdoComercial" interface="areaInter" role="onBegin"/>
+      <bind component="vdoPromo" interface="areaInter" role="onBegin"/>
       <bind component="imgInteratividade" role="start"/>
     </link>
     <link xconnector="onKeySelectionStopNStartN">
@@ -264,7 +264,7 @@
 	 #	Faz o teste do Flag: fullScreen
 	 ###################################-->
     <link xconnector="onEndTestStartNStopN">
-      <bind component="vdoComercial" interface="areaInter" role="onEnd"/>
+      <bind component="vdoPromo" interface="areaInter" role="onEnd"/>
       <bind component="setNode" interface="fullScreen" role="testFullScreen"/>
       <bind component="ctxClose" role="start"/>
       <bind component="ctxCuriosidade" role="stop"/>
@@ -276,7 +276,7 @@
 	 # Notificando o close
 	 #################################### -->
     <link xconnector="onBeginSetN">
-      <bind component="vdoComercial" interface="areaClose" role="onBegin"/>
+      <bind component="vdoPromo" interface="areaClose" role="onBegin"/>
       <bind component="setNode" interface="inicioClose" role="set">
 	<bindParam name="var" value="true"/>
       </bind>
@@ -286,7 +286,7 @@
 	 # No final do video mostra a tela de encerramento
 	 #################################### -->
     <link xconnector="onEndStartN">
-      <bind component="vdoComercial" role="onEnd"/>
+      <bind component="vdoPromo" role="onEnd"/>
       <bind component="imgTelaEncerramento" role="start"/>
     </link>
 
@@ -333,7 +333,7 @@
       <media descriptor="dsCuriosidades" id="imgBtnCuriosidadesSel" src="media/imagens/menu/curiosidadesMenu.png"/>
       <media descriptor="dsSurpresa" id="imgBtnSurpresaSel" src="media/imagens/menu/surpresaMenu.png"/>
 
-      <media id="vdoComercialRef1" instance="instSame" refer="vdoComercial"/>
+      <media id="vdoPromoRef1" instance="instSame" refer="vdoPromo"/>
       <media id="focusNodeCondiminio" instance="instSame" refer="setNode"/>
 
       <!-- #################################
@@ -393,7 +393,7 @@
 	<media descriptor="dsConteudoTexto" id="imgConteudoCuriosidade3" src="media/imagens/common/curiosidades/text3.png"/>
 
 	<media id="focusNodeCuriosidades" instance="instSame" refer="setNode"/>
-	<media id="vdoComercialRef2" instance="instSame" refer="vdoComercial"/>
+	<media id="vdoPromoRef2" instance="instSame" refer="vdoPromo"/>
 	<context id="telaInterRef1" refer="ctxTelaInteracao"/>
 
 	<link xconnector="onBeginSetN">
@@ -442,7 +442,7 @@
 	    <bindParam name="keyCode" value="BLUE"/>
 	  </bind>
 	  <bind component="ctxCuriosidades" role="stop"/>
-	  <bind component="vdoComercialRef2" interface="bounds" role="set">
+	  <bind component="vdoPromoRef2" interface="bounds" role="set">
             <bindParam name="var" value="0, 0, 640, 480"/>
 	  </bind>
 	  <bind component="focusNodeCuriosidades" interface="fullScreen" role="set">
@@ -466,7 +466,7 @@
 	<media descriptor="dsCuriosidadesBtn" id="imgBtnSurpresaVolta" src="media/imagens/common/surpresa/botoesSurpresa.png"/>
 
 	<media id="focusNodeSurpresa" instance="instSame" refer="setNode"/>
-	<media id="vdoComercialRef3" instance="instSame" refer="vdoComercial"/>
+	<media id="vdoPromoRef3" instance="instSame" refer="vdoPromo"/>
 	<context id="telaInterRef2" refer="ctxTelaInteracao"/>
 
 	<!-- ### Volta para o menu anterior com o video 100% ### -->
@@ -475,7 +475,7 @@
 	    <bindParam name="keyCode" value="BLUE"/>
 	  </bind>
 	  <bind component="ctxSurpresa" role="stop"/>
-	  <bind component="vdoComercialRef3" interface="bounds" role="set">
+	  <bind component="vdoPromoRef3" interface="bounds" role="set">
 	    <bindParam name="var" value="0, 0, 640, 480"/>
 	  </bind>
 	  <bind component="focusNodeSurpresa" interface="fullScreen" role="set">
@@ -539,7 +539,7 @@
 	<bind component="imgBtnSurpresaSel" role="stop"/>
 	<bind component="imgBtnLocalizacaoSel" role="stop"/>
 	<bind component="ctxCuriosidades" role="start"/>
-        <bind component="vdoComercialRef1" interface="bounds" role="set">
+        <bind component="vdoPromoRef1" interface="bounds" role="set">
           <bindParam name="var" value="346, 126, 256, 192"/>
 	</bind>
 	<bind component="focusNodeCondiminio" interface="fullScreen" role="set">
@@ -556,7 +556,7 @@
 	<bind component="imgBtnSurpresaSel" role="stop"/>
 	<bind component="imgBtnLocalizacaoSel" role="stop"/>
 	<bind component="ctxSurpresa" role="start"/>
-	<bind component="vdoComercialRef1" interface="bounds" role="set">
+	<bind component="vdoPromoRef1" interface="bounds" role="set">
           <bindParam name="var" value="346, 126, 256, 192"/>
 	</bind>
 	<bind component="focusNodeCondiminio" interface="fullScreen" role="set">
@@ -572,13 +572,13 @@
     <context id="ctxClose">
 
 
-      <media id="vdoComercialRef4" refer="vdoComercial" instance="instSame"/>
+      <media id="vdoPromoRef4" refer="vdoPromo" instance="instSame"/>
       <media id="setNodeClose" refer="setNode" instance="instSame"/>
 
   
       <!-- ### Termina, encerra tudo ### -->
       <link xconnector="onEndStopN">
-	<bind component="vdoComercialRef4" interface="areaClose" role="onEnd"/>
+	<bind component="vdoPromoRef4" interface="areaClose" role="onEnd"/>
 
       </link>
 
