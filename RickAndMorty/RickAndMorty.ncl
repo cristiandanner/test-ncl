@@ -4,8 +4,7 @@
 <ncl id="new_ncl_file" xmlns="http://www.ncl.org.br/NCL3.0/EDTVProfile">
   <head>
     <regionBase>
-      <importBase documentURI="regionbase.reg"
-                  alias="rg" />
+      <importBase documentURI="regionbase.reg" alias="rg" />
     </regionBase>
 
     <descriptorBase>
@@ -18,24 +17,23 @@
       <descriptor id="dsSairMapa" region="rg#rgSairMapa"/>
       <descriptor id="dsTelaInteracao" region="rg#rgTelaInteracao"/>
       <descriptor id="dsCuriosidadesBtn" region="rg#rgCuriosidadesBotoes"/>
+
       <!-- #### Descritores utilizados para navegacao ### -->
+
       <descriptor id="dsCuriosidade1" region="rg#rgCuriosidade1"
 		  focusSrc="media/imagens/common/curiosidades/curiosidade1Selecionado.png"
 		  moveLeft="3" moveRight="2"
-		  focusBorderWidth="0" focusIndex="1"
-		  />
+		  focusBorderWidth="0" focusIndex="1"/>
 
       <descriptor id="dsCuriosidade2" region="rg#rgCuriosidade2"
 		  focusSrc="media/imagens/common/curiosidades/curiosidade2Selecionado.png"
 		  moveLeft="1" moveRight="3"
-		  focusBorderWidth="0" focusIndex="2"
-		  />
+		  focusBorderWidth="0" focusIndex="2"/>
 
       <descriptor  id="dsCuriosidade3" region="rg#rgCuriosidade3"
 		   focusSrc="media/imagens/common/curiosidades/curiosidade3Selecionado.png"
 		   moveLeft="2" moveRight="1"
-		   focusBorderWidth="0" focusIndex="3"
-		   />
+		   focusBorderWidth="0" focusIndex="3"/>
 
       <descriptor id="dsFundo" region="rg#rgFundo"/>
       <descriptor id="dsConteudoFundo" region="rg#rgConteudoFundo"/>
@@ -44,7 +42,6 @@
       <descriptor id="dsGingaLogo" region="rg#rgGinga"/>
       <descriptor id="dsCefetLogo" region="rg#rgCefetLogo"/>
       <descriptor id="dsHeadSurpresa" region="rg#rgHeadSurpresa"/>
-      <descriptor focusIndex="ixLua" id="dsLua" region="rg#rgLuaCep"/>
     </descriptorBase>
     <connectorBase>
 
@@ -111,7 +108,6 @@
       <!-- #######################################
 	   #	OnKeySelection CONNECTORS
 	   ######################################-->
-
 
       <causalConnector id="onKeySelectionStartNSetNStopN">
 	<connectorParam name="var"/>
@@ -196,11 +192,13 @@
     <!-- ###########################
 	 # Porta de Entrada
 	 ############################ -->
+
     <port component="imgTelaAbertura" id="ptInicio"/>
 
     <!-- ###########################
 	 # Variáveis Globais
 	 ############################ -->
+
     <media id="setNode" type="application/x-ginga-settings">
       <property name="service.currentFocus"/> <!-- #### Variável de Sistema que seta o Foco atual #### -->
       <property name="service.currentKeyMaster" value="ixLua"/> <!-- ## Variável de Sistema que seta quem recebe eventos de Controle Remoto ## -->
@@ -211,6 +209,7 @@
     <!-- #############################
 	 # Declaração das midias de Abertura e Promo
 	 ############################# -->
+
     <media descriptor="dsFullScreen" id="imgTelaAbertura" src="media/imagens/tela_abertura.png">
       <area begin="5s" id="areaDur"/>
     </media>
@@ -224,7 +223,6 @@
       <area begin="61s" end="62s" id="areaClose"/>
       <property name="bounds"/> <!-- ### Propriedade de mídia relacionada com o tamanho da mídia ### -->
     </media>
-
 
     <!--##############################
 	# Elos que irao dar início a aplicação
@@ -263,6 +261,7 @@
     <!-- ##################################
 	 #	Faz o teste do Flag: fullScreen
 	 ###################################-->
+
     <link xconnector="onEndTestStartNStopN">
       <bind component="vdoPromo" interface="areaInter" role="onEnd"/>
       <bind component="setNode" interface="fullScreen" role="testFullScreen"/>
@@ -275,6 +274,7 @@
 	 # Seta o Flag: inicioClose com true
 	 # Notificando o close
 	 #################################### -->
+
     <link xconnector="onBeginSetN">
       <bind component="vdoPromo" interface="areaClose" role="onBegin"/>
       <bind component="setNode" interface="inicioClose" role="set">
@@ -285,6 +285,7 @@
     <!-- ###################################
 	 # No final do video mostra a tela de encerramento
 	 #################################### -->
+
     <link xconnector="onEndStartN">
       <bind component="vdoPromo" role="onEnd"/>
       <bind component="imgTelaEncerramento" role="start"/>
@@ -295,6 +296,7 @@
 	 #	AMARELO: reinicia a aplicação
 	 # 	AZUL: encerra a aplicação
 	 #################################### -->
+
     <link xconnector="onKeySelectionStartNSetNStopN">
       <bind component="imgTelaEncerramento" role="onSelection">
 	<bindParam name="keyCode" value="YELLOW"/>
@@ -324,6 +326,7 @@
 	 #			|-> CtxCuriosidade: 	Curiosidades sobre a série
 	 #			|->	CtxSurpresa:	Surpresa
 	 #########################################	-->
+
     <context id="ctxCuriosidade">
       <port component="imgBtnCuriosidadesSel" id="ptoImgBtnCuriosidadesSel"/>
       <port component="imgBtnSurpresaSel" id="ptoImgBtnSurpresaSel"/>
@@ -339,6 +342,7 @@
       <!-- #################################
 	   #	Contexto que contem as mídias da tela de interatividade
 	   ################################### -->
+
       <context id="ctxTelaInteracao">
 	<port id="ptoImgFundoInter" component="imgFundoInter"/>
 	<port id="ptoImgVideoArea" component="imgVideoArea"/>
@@ -354,6 +358,7 @@
       <!-- ###################################
 	   #	Contexto que gerencia a exibicao do mapa
 	   #################################### -->
+
       <context id="ctxMapa">
 	<port component="imgMapa" id="ptoMapa"/>
 	<port component="imgSairMapa" id="ptoImgSairMapa"/>
@@ -367,11 +372,10 @@
 	</link>
       </context>
 
-
-
       <!-- ###################################
 	   # Contexto que gerencia as curiosidades da série
 	   #################################### -->
+
       <context id="ctxCuriosidades">
 	<port id="ptoCtxRef1TelaInter" component="telaInterRef1"/>
 	<port id="ptoConteudoFundo" component="imgFundoConteudo"/>
@@ -379,8 +383,6 @@
 	<port component="imgBtnCuriosidade2" id="ptoCuriosidade2"/>
 	<port component="imgBtnCuriosidade1" id="ptoCuriosidade1"/>
 	<port component="imgBtnCuriosidadesVolta" id="ptoCuriosidadesBtn"/>
-
-
 
 	<media descriptor="dsCuriosidadesBtn" id="imgBtnCuriosidadesVolta" src="media/imagens/common/curiosidades/botoesCuriosidades.png"/>
 	<media descriptor="dsCuriosidade1" id="imgBtnCuriosidade1" src="media/imagens/common/curiosidades/curiosidade1.png"/>
@@ -408,6 +410,7 @@
 	     # Utilizando onEndAttributtion do currentFocus
 	     # Evita utilizar o botao OK
 	     ###########################################-->
+
 	<link xconnector="onEndAttributionTestStopNStartN">
 	  <bind component="focusNodeCuriosidades" interface="service.currentFocus" role="onEndAttribution"/>
 	  <bind component="focusNodeCuriosidades" interface="service.currentFocus" role="attNodeTest">
@@ -437,6 +440,7 @@
 	</link>
 
 	<!-- ### Volta para o menu anterior com o video 100% ### -->
+
 	<link xconnector="onKeySelectionSetNStopN">
 	  <bind component="imgBtnCuriosidadesVolta" role="onSelection">
 	    <bindParam name="keyCode" value="BLUE"/>
@@ -454,12 +458,12 @@
       <!-- ##############################
 	   # Contexto que gerencia as unidades disponiveis
 	   ############################### -->
+
       <context id="ctxSurpresa">
 	<port id="ptoCtxRef2TelaInter" component="telaInterRef2"/>
 	<port component="imgBtnSurpresaVolta" id="ptoBtnSurpresaVolta"/>
 	<port component="imgConteudoSurpresa" id="ptoConteudoSurpresa"/>
 	<port component="imgHeadSurpresa" id="ptoHeadSurpresa"/>
-
 
 	<media descriptor="dsHeadSurpresa" id="imgHeadSurpresa" src="media/imagens/common/surpresa/surpresaHead.png"/>
 	<media descriptor="dsConteudoFundo" id="imgConteudoSurpresa" src="media/imagens/common/surpresa/surpresa.png"/>
@@ -486,6 +490,7 @@
       </context>
 
       <!-- ### Vai para a tela de unidades a partir da tela de curiosidades ### -->
+
       <link xconnector="onKeySelectionStopNStartN">
 	<bind component="ctxCuriosidades" interface="ptoCuriosidadesBtn" role="onSelection">
 	  <bindParam name="keyCode" value="YELLOW"/>
@@ -495,6 +500,7 @@
       </link>
 
       <!-- ### Vai para tela de curiosidades a partir da tela de unidades ### -->
+
       <link xconnector="onKeySelectionStopNStartN">
 	<bind component="ctxSurpresa" interface="ptoBtnSurpresaVolta" role="onSelection">
 	  <bindParam name="keyCode" value="GREEN"/>
@@ -504,6 +510,7 @@
       </link>
 
       <!-- ### Vai para o mapa ### -->
+
       <link xconnector="onKeySelectionStopNStartN">
 	<bind component="imgBtnLocalizacaoSel" role="onSelection">
 	  <bindParam name="keyCode" value="RED"/>
@@ -514,11 +521,11 @@
 	<bind component="ctxMapa" role="start"/>
       </link>
 
-
       <!-- ###
 	   # Testa as curiosidades necessárias 
 	   # para reexibição do menu
 	   # caso algum contexto tenha terminado -->
+
       <link xconnector="onOrEndTestStartN">
 	<bind component="ctxCuriosidades" interface="ptoCtxRef1TelaInter" role="onEnd"/>
 	<bind component="ctxSurpresa" interface="ptoCtxRef2TelaInter" role="onEnd"/>
@@ -531,6 +538,7 @@
       </link>
 
       <!-- ### Vai para a tela de curiosidades a partir do menu principal ### -->
+
       <link xconnector="onKeySelectionSetNStopNStartN">
 	<bind component="imgBtnCuriosidadesSel" role="onSelection">
 	  <bindParam name="keyCode" value="GREEN"/>
@@ -548,6 +556,7 @@
       </link>
 
       <!-- ### Vai para tela de unidades a partir do menu principal ### -->
+
       <link xconnector="onKeySelectionSetNStopNStartN">
 	<bind component="imgBtnSurpresaSel" role="onSelection">
 	  <bindParam name="keyCode" value="YELLOW"/>
@@ -569,19 +578,17 @@
 	 # Contexto responsável pela interatividade
 	 # do close
 	 ################################### -->
-    <context id="ctxClose">
 
+    <context id="ctxClose">
 
       <media id="vdoPromoRef4" refer="vdoPromo" instance="instSame"/>
       <media id="setNodeClose" refer="setNode" instance="instSame"/>
-
   
       <!-- ### Termina, encerra tudo ### -->
       <link xconnector="onEndStopN">
 	<bind component="vdoPromoRef4" interface="areaClose" role="onEnd"/>
 
       </link>
-
 
     </context>
 
